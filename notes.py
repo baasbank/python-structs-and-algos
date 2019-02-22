@@ -142,3 +142,7 @@
 # NAMESPACES
 # The function, dir, reports the names of the identifiers in a given namespace (i.e., the keys of the dictionary),
 # while the function, vars, returns the full dictionary.
+
+## ITERATORS
+# Python provides an automatic iterator implementation for any class that defines both the __len__ and __get_item__
+# methods.
