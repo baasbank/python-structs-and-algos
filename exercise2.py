@@ -65,3 +65,64 @@ def make_payment(self, amount):
     if amount < 0:
         raise ValueError('Amount must not be negative')
     self._balance -= amount
+
+
+# The CreditCard class of Section 2.3 initializes the balance of a new account to zero.
+# Modify that class so that a new account can be given a nonzero balance using an optional fifth parameter to the constructor.
+# The four-parameter constructor syntax should continue to produce an account with zero balance.
+
+def __init__(self, customer, bank, acnt, limit, balance=0):
+    """Create a new credit card instance.
+    The initial balance is zero.
+
+    customer the name of the customer (e.g., John Bowman )
+    bank the name of the bank (e.g., California Savings )
+    acnt the acount identifier (e.g., 5391 0375 9387 5309 )
+    limit credit limit (measured in dollars)
+    """
+
+    self._customer = customer
+    self._bank = bank
+    self._account = acnt
+    self._limit = limit
+    self._balance = balance
+
+
+# Implement the __sub__ method for the Vector class of Section 2.3.3, so that the expression u−v returns a new vector instance representing the difference between two vectors.
+
+def __sub__(self, other):
+    """Return difference of two vectors."""
+    if len(self) != len(other):  # relies on __len__  method
+        raise ValueError('dimensions must agree')
+    result = Vector(len(self))
+    for j in range(len(self)):
+        result[j] = self[j] - other[j]
+    return result
+
+
+# Implement the __neg__ method for the Vector class of Section 2.3.3, so that the expression −v returns a new vector instance whose coordinates are all the negated values of the respective coordinates of v.
+
+def __neg__(self):
+    result = Vector(len(self))
+    print(len(self) - 1)
+    for j in range(len(self)):
+        result[j] = -self[j]
+    return result
+
+
+# Implement the __mul__ method for the Vector class of Section 2.3.3, so that the expression v * 3 returns a new vector with coordinates that are 3 times the respective coordinates of v.
+
+def __mul__(self, multiplier):
+    result = Vector(len(self))
+    for j in range(len(self)):
+        result[j] = self[j] * multiplier
+    return result
+
+# Exercise R-2.12 asks for an implementation of __mul__ ,
+# for the Vector class of Section 2.3.3, to provide support for the syntax v * 3. Implement the __rmul__ method, to provide additional support for syntax 3 * v.
+
+def __rmul__(self, multiplier):
+    result = Vector(len(self))
+    for j in range(len(self)):
+        result[j] = multiplier * self[j]
+    return result
