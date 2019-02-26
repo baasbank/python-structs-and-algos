@@ -4,6 +4,7 @@ class Vector:
         """Create d-dimensional vector of zeros."""
         self._coords = [0] * d
 
+
     def __len__(self):
         """Return the dimension of the vector."""
         return len(self._coords)
@@ -52,11 +53,17 @@ class Vector:
             result[j] = -self[j]
         return result
 
-    def __mul__(self, multiplier):
-        result = Vector(len(self))
-        for j in range(len(self)):
-            result[j] = self[j] * multiplier
-        return result
+    # # Standard __mul__ function
+    # def __mul__(self, multiplier):
+    #     result = Vector(len(self))
+    #     for j in range(len(self)):
+    #         result[j] = self[j] * multiplier
+    #     return result
+
+    # dot product __mul__ function
+    def __mul__(self, other):
+        dot_product = [self[j] * other[j] for j in range(len(self))]
+        return sum(dot_product)
 
     def __rmul__(self, multiplier):
         result = Vector(len(self))
@@ -69,12 +76,18 @@ if __name__  == '__main__':
     v1 = Vector(5)
     v2 = Vector(5)
 
-    v1[1] = 5
-    v1[2] = 10
-    v2[1] = 5
-    v2[4] = 8
+    v1[0] = 1
+    v1[1] = 2
+    v1[2] = 3
+    v1[3] = 4
+    v1[4] = 5
+    v2[0] = 6
+    v2[1] = 7
+    v2[2] = 8
+    v2[3] = 9
+    v2[4] = 10
 
     print('v1 =',v1)
     print('v2 =',v2)
 
-    print(3 * v1)
+    print('Dot Product of v1 and v2 = ', v1 * v2)

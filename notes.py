@@ -146,3 +146,9 @@
 ## ITERATORS
 # Python provides an automatic iterator implementation for any class that defines both the __len__ and __get_item__
 # methods.
+
+
+# DATA STRUCTURES AND ALGORITHMS
+##   A data structure is a systematic way of organizing and accessing data, while an algorithm is a step by step
+## procedure for performing some task in a finite amount of time.
+

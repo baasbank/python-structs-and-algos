@@ -169,4 +169,3 @@ print(no_of_vowels("aeiou"))
 # and returns a copy of the string with all punctuation removed.
 # For example, if given the string "Let's try, Mike.", this function would return "Lets try Mike".
 
-
